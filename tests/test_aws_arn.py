@@ -1,6 +1,6 @@
 import pytest
 
-from aws_arn import parse_arn, MalformedArnError
+from simple_arn import parse_arn, MalformedArnError
 
 
 def test__definition():

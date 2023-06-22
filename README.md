@@ -15,7 +15,7 @@ Sometimes it is necessary to swap parts of arn strings in the case of
 resource migration automation and this package provides a simple way to do this:
 
 ```python
-from aws_arn import AwsArn
+from simple_arn import AwsArn
 
 arn = AwsArn.parse("arn:aws:iam::123456789012:user/MyUserName")\
     .clone(resource="MyOtherUserName")
@@ -37,7 +37,7 @@ with modified attributes.
 
 Example:
 ```python
-from aws_arn import AwsArn
+from simple_arn import AwsArn
 
 arn = AwsArn.parse("arn:aws:iam::123456789012:user/MyUserName")
 print(str(arn)) # prints: arn:aws:iam::123456789012:user/MyUserName
