@@ -16,7 +16,7 @@ setup(
     license="MIT",
     author_email="eric.m.austin@gmail.com",
     python_requires=">=3.7",
-    version="0.0.1",
+    version="0.0.2",
     include_package_data=True,
     packages=find_packages(),
     install_requires=[]
