@@ -57,6 +57,10 @@ class AwsArn:
     def __str__(self):
         return f"arn:{self.partition}:{self.service}:{self.region}:{self.account_id}:{self.resource}"
 
+    @classmethod
+    def parse(cls, arn: str) -> AwsArn:
+        return parse_arn(arn)
+
 
 def parse_arn(arn: str) -> AwsArn:
     """ parse the arn string into an AwsArn object """
