@@ -1,4 +1,6 @@
-# simple-arn 
+# simple-arn
+
+[![PyPI version](https://badge.fury.io/py/simple-arn.svg)](https://badge.fury.io/py/simple-arn)
 
 A simple AWS ARN parsing and serialization package.
 
@@ -20,6 +22,9 @@ arn = AwsArn.parse("arn:aws:iam::123456789012:user/MyUserName")\
 
 print(str(arn)) # prints: arn:aws:iam::123456789012:user/MyOtherUserName
 ```
+
+## Installation
+install from PyPI: `pip install simple-arn`
 
 ## Usage
 
