@@ -7,8 +7,8 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name="aws_arn",
-    description="aws arn parsing",
+    name="simple_arn",
+    description="simple AWS arn parsing and serialization",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Eric Austin",

@@ -1,6 +1,6 @@
-# aws_arn
+# simple-arn 
 
-Improved AWS ARN parsing and serialization.
+A simple AWS ARN parsing and serialization package.
 
 Supports python 3.7+ or 3.6 with the dataclasses backport.
 
