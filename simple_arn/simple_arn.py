@@ -25,11 +25,6 @@ class AwsArn:
     resource_type: Optional[str] = None
     resource_id: Optional[str] = None
 
-    def update(self, **kwargs) -> AwsArn:
-        for k, v in kwargs.items():
-            self.__setattr__(k, v)
-        return self
-
     def clone(
             self,
             partition: Optional[str] = None,
@@ -37,22 +32,25 @@ class AwsArn:
             region: Optional[str] = None,
             account_id: Optional[str] = None,
             resource: Optional[str] = None,
-            resource_type: Optional[str] = None,
-            resource_id: Optional[str] = None,
     ) -> AwsArn:
         """
         Clone the AwsArn object with optional new values
         :return: a new AwsArn object
         """
-        return AwsArn(
-            partition=partition or self.partition,
-            service=service or self.service,
-            region=region or self.region,
-            account_id=account_id or self.account_id,
-            resource=resource or self.resource,
-            resource_type=resource_type or self.resource_type,
-            resource_id=resource_id or self.resource_id,
-        )
+        resource_type, resource_id = None, None
+        if resource:
+            resource_type, resource_id = _parse_resource(resource)
+
+        return AwsArn(**{k: v if v is not None else getattr(self, k) for k, v in
+                         dict(
+                             partition=partition,
+                             service=service,
+                             region=region,
+                             account_id=account_id,
+                             resource=resource,
+                             resource_type=resource_type,
+                             resource_id=resource_id,
+                         ).items()})
 
     def __str__(self):
         return f"arn:{self.partition}:{self.service}:{self.region}:{self.account_id}:{self.resource}"

@@ -72,7 +72,7 @@ def test__arn_clone():
         service='service2',
         region='region2',
         account_id='account-id2',
-        resource_type='resourcetype2',
+        resource="resourcetype2/account-id2",
     )
     assert arn2.partition == 'partition2'
     assert arn2.service == 'service2'
